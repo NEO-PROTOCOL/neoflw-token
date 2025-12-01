@@ -15,13 +15,27 @@ Hardhat é configurado **APENAS** como ferramenta auxiliar para verificação de
 
 ---
 
+## 🌐 REDE DO PROJETO - ATENÇÃO
+
+**⚠️ Este projeto é deployado na POLYGON MAINNET, não em X Layer ou outras chains da OKX.**
+
+- ✅ **Rede**: **Polygon Mainnet** (Chain ID: 137)
+- ✅ **Chain Short Name**: `POLYGON`
+- ❌ **NÃO é**: X Layer, X Layer Testnet, ou outras chains da OKX
+- 🔗 **Explorer Principal**: https://polygonscan.com (PolygonScan)
+- 🔗 **Explorer Alternativo**: https://www.oklink.com/polygon (OKLink para Polygon)
+
+**O OKLink é usado apenas como ferramenta de verificação, mas a rede é Polygon, não X Layer!**
+
+---
+
 ## 📋 Pré-requisitos
 
 - **Repositório do contrato**: `github.com/kauntdewn1/neoflw-token`
 - **Contrato**: `0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2`
-- **Chain**: Polygon Mainnet (137)
+- **Chain**: **Polygon Mainnet (137)** - ⚠️ NÃO confundir com X Layer
 - **Chain Short Name**: `POLYGON`
-- **Solidity Version**: `0.8.18` (mesma do Ape Framework)
+- **Solidity Version**: `0.8.30` (versão usada no deploy)
 
 ---
 
@@ -341,12 +355,15 @@ curl -X POST https://www.oklink.com/api/v5/explorer/contract/check-verify-result
 O OKLink suporta verificação nas seguintes chains:
 
 **Mainnets:**
-- ETH, XLAYER, BSC, POLYGON, AVAXC, FTM, OP, ARBITRUM, LINEA, MANTA, CANTO, BASE, SCROLL, OPBNB, POLYGON_ZKEVM
+- ETH, XLAYER, BSC, **POLYGON** ⭐ (usado neste projeto), AVAXC, FTM, OP, ARBITRUM, LINEA, MANTA, CANTO, BASE, SCROLL, OPBNB, POLYGON_ZKEVM
 
 **Testnets:**
 - SEPOLIA_TESTNET, GOERLI_TESTNET, AMOY_TESTNET, MUMBAI_TESTNET, POLYGON_ZKEVM_TESTNET, XLAYER_TESTNET
 
-**Nota:** Para Polygon Mainnet, use `chainShortName: "POLYGON"` na configuração.
+**⚠️ IMPORTANTE PARA ESTE PROJETO:**
+- ✅ **Este projeto usa**: `POLYGON` (Polygon Mainnet, Chain ID: 137)
+- ❌ **Este projeto NÃO usa**: XLAYER, XLAYER_TESTNET, ou outras chains da OKX
+- 📝 **Configuração**: Para Polygon Mainnet, use `chainShortName: "POLYGON"` na configuração.
 
 ---
 

@@ -14,8 +14,11 @@ updates:
     # Ignorar vulnerabilidades do frontend removido
     ignore:
       - dependency-name: "*"
-        update-types: ["all"]
-  
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"
+
   # Habilitar Dependabot para Python (Ape Framework)
   - package-ecosystem: "pip"
     directory: "/"
