@@ -1,0 +1,62 @@
+✅ CONFIGURAÇÕES CORRETAS PARA VERIFICAÇÃO
+==========================================
+
+Endereço do contrato:
+0x59aa4eae743d608fbdd4205eba59b38dca755dd2
+
+═══════════════════════════════════════════════════════════════
+
+🔧 CONFIGURAÇÕES OBRIGATÓRIAS:
+
+1. Tipo de compilador:
+   ✅ Solidity (SingleFile) ou Standard JSON Input
+
+2. Versão do compilador:
+   ✅ v0.8.30+commit.73712a01  (PRIMEIRA OPÇÃO - conforme cache)
+   OU
+   ✅ v0.8.18+commit.87f61d96  (SEGUNDA OPÇÃO - versão do pragma)
+
+3. Otimização:
+   ✅ Sim
+   ✅ 200 vezes
+
+4. ⚠️  via-IR (Baseado em IR):
+   ❌ NÃO (false)  ← MUITO IMPORTANTE!
+   ✅ Deve estar DESABILITADO
+
+5. EVM Version:
+   ✅ paris  (PRIMEIRA OPÇÃO - conforme cache)
+   OU
+   ✅ default  (SEGUNDA OPÇÃO)
+
+6. License:
+   ✅ MIT License (MIT)
+
+═══════════════════════════════════════════════════════════════
+
+📝 CONSTRUCTOR ARGUMENTS (ABI-encoded):
+
+0000000000000000000000000000000000000000033b2e3c9fd0803ce8000000
+
+═══════════════════════════════════════════════════════════════
+
+📁 ARQUIVO DE CÓDIGO FONTE:
+
+Use: artifacts/flattened/NeoFlowToken_original_flattened.sol
+
+═══════════════════════════════════════════════════════════════
+
+🔴 ERROS COMUNS:
+
+❌ via-IR: Sim  → Deve ser NÃO
+❌ EVM Version: london  → Deve ser paris ou default
+❌ Compiler: versão diferente  → Use v0.8.30 ou v0.8.18
+
+═══════════════════════════════════════════════════════════════
+
+💡 DICA: Se ainda não funcionar, tente:
+
+1. Compiler: v0.8.30 (sem commit hash)
+2. EVM Version: default (em vez de paris)
+3. Verifique se o código fonte está EXATAMENTE igual ao deploy
+

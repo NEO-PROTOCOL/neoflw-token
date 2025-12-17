@@ -289,9 +289,12 @@ npm run build
 
 ### **Fase 2.5: Distribuição de Tokens (NOVA FASE)**
 
-- [ ] Transferir 100M tokens para NeoFlowClaim
+- [x] **Transferir 100M tokens para NeoFlowClaim** ✅ **CONCLUÍDO (2025-11-27)**
 - [ ] Transferir 100M tokens para StakingVault
-- [ ] Configurar whitelist no NeoFlowClaim
+- [x] **Configurar whitelist no NeoFlowClaim** ✅ **CONCLUÍDO (2025-12-17)**
+  - ✅ 3 endereços adicionados na whitelist
+  - ✅ Total de 3,000 NEOFLW configurados para claim
+  - 📋 Ver detalhes: [`docs/WHITELIST_STATUS.md`](./WHITELIST_STATUS.md)
 - [ ] Deploy GamificationController (quando necessário)
 - [ ] Transferir 300M tokens para GamificationController (quando deployado)
 
@@ -452,9 +455,10 @@ cd frontend && npm start
 ### **Próximos Passos Urgentes:**
 
 1. **Distribuição de Tokens** (30 min)
-   - Transferir 100M para NeoFlowClaim
+   - ✅ Transferir 100M para NeoFlowClaim (CONCLUÍDO)
    - Transferir 100M para StakingVault
-   - Configurar whitelist no Claim
+   - ✅ Configurar whitelist no Claim (CONCLUÍDO - 3 endereços, 3,000 NEOFLW)
+   - 📋 Ver: [`docs/WHITELIST_STATUS.md`](./WHITELIST_STATUS.md)
 
 2. **Verificação de Contratos** (1-2 horas)
    - Verificar código-fonte no Polygonscan

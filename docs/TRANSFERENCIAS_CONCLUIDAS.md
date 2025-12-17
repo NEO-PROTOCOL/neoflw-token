@@ -70,17 +70,47 @@
 
 ---
 
+## ✅ WHITELIST CONFIGURADA
+
+**Data:** 2025-12-17  
+**Status:** ✅ Whitelist Configurada e Ativa
+
+### Endereços Elegíveis para Claim:
+
+| # | Endereço | Quantidade | Status |
+|---|----------|------------|--------|
+| 1 | `0xc8b6c6cf88ece28efdede72ed625b95b73cb649f` | 1,000 NEOFLW | ✅ Elegível |
+| 2 | `0x025d20c85bca82a614466429a8c7806e25e99408` | 1,000 NEOFLW | ✅ Elegível |
+| 3 | `0xece5867f7c82e34a7273c2361cdf5ffa01fdf5a3` | 1,000 NEOFLW | ✅ Elegível |
+
+**Total Configurado:** 3,000 NEOFLW  
+**Contrato Claim:** `0x407C037906d6441ECD4a3F9064eab2E6CF03b36b`  
+**Polygonscan:** https://polygonscan.com/address/0x407C037906d6441ECD4a3F9064eab2E6CF03b36b
+
+### Como Fazer Claim:
+
+Os endereços elegíveis podem fazer claim:
+
+1. Conectar wallet na Polygon Mainnet
+2. Acessar o contrato no Polygonscan
+3. Chamar a função `claimTokens()`
+4. Pagar o gas (POL) da transação
+5. Receber 1,000 NEOFLW na wallet
+
+**Guia Completo:** [`docs/deploy/COMO_FAZER_CLAIM.md`](./deploy/COMO_FAZER_CLAIM.md)
+
+---
+
 ## ✅ PRÓXIMOS PASSOS
 
 ### Imediato:
 
-1. **Verificar confirmação da segunda transação (Vault)**
+1. ✅ **Whitelist configurada** - 3 endereços elegíveis para claim
+2. **Verificar confirmação da segunda transação (Vault)**
    - Aguardar confirmação no Polygonscan
    - Verificar saldo do Vault
-
-2. **Configurar whitelist no NeoFlowClaim**
-   - Adicionar endereços elegíveis para o airdrop
-   - Usuários poderão fazer claim pagando seu próprio gas
+3. **Adicionar mais endereços na whitelist** (se necessário)
+   - Usar script: `ape run setup add_whitelist --network polygon:mainnet`
 
 ### Curto Prazo:
 

@@ -108,6 +108,36 @@ print(f"Saldo do contrato: {balance / 10**18:,.2f} NEOFLW")
 
 ## 📝 Configuração da Whitelist
 
+### ✅ Whitelist Atual Configurada (Polygon Mainnet)
+
+**Data de Configuração:** 2025-12-17  
+**Contrato:** `0x407C037906d6441ECD4a3F9064eab2E6CF03b36b`  
+**Status:** ✅ Configurada e Ativa
+
+#### Endereços na Whitelist:
+
+| # | Endereço | Quantidade | Status |
+|---|----------|------------|--------|
+| 1 | `0xc8b6c6cf88ece28efdede72ed625b95b73cb649f` | 1,000 NEOFLW | ✅ Elegível |
+| 2 | `0x025d20c85bca82a614466429a8c7806e25e99408` | 1,000 NEOFLW | ✅ Elegível |
+| 3 | `0xece5867f7c82e34a7273c2361cdf5ffa01fdf5a3` | 1,000 NEOFLW | ✅ Elegível |
+
+**Total Configurado:** 3,000 NEOFLW  
+**Saldo Disponível no Contrato:** 100,000,000 NEOFLW  
+**Saldo Restante para Novos Claims:** 99,997,000 NEOFLW
+
+#### Como Adicionar Mais Endereços:
+
+Use o script automatizado:
+
+```bash
+ape run setup add_whitelist --network polygon:mainnet
+```
+
+Ou edite o arquivo `scripts/setup/add_whitelist.py` e adicione novos endereços na lista `users` e `amounts`.
+
+---
+
 ### Opção 1: Configurar múltiplos usuários de uma vez
 
 ```python

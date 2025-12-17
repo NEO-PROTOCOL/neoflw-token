@@ -1,57 +1,56 @@
 #!/usr/bin/env python3
 """
-Gera Standard JSON Input para verificação do contrato ORIGINAL (sem ContractMetadata)
+Gera Standard JSON Input usando o código ORIGINAL (sem ContractMetadata)
+para corresponder ao bytecode deployado (2999 bytes)
 """
 
 import json
 from pathlib import Path
 
-# Configurações
-CONTRACT_NAME = "NeoFlowToken"
-COMPILER_VERSION = "v0.8.30+commit.73712a01"  # Versão usada no deploy
-OPTIMIZER_ENABLED = True
-OPTIMIZER_RUNS = 200
-EVM_VERSION = "paris"
-
-# Caminhos
 PROJECT_ROOT = Path(__file__).parent.parent.parent
-ORIGINAL_FLATTENED_FILE = PROJECT_ROOT / "artifacts" / "flattened" / "NeoFlowToken_original_flattened.sol"
-OUTPUT_JSON_FILE = PROJECT_ROOT / "artifacts" / "verification" / "oklink_standard_json_original.json"
-
-def read_source_code(file_path):
-    """Lê o conteúdo de um arquivo."""
-    if not file_path.exists():
-        raise FileNotFoundError(f"Arquivo não encontrado: {file_path}")
-    with open(file_path, "r", encoding="utf-8") as f:
-        return f.read()
+SOURCE_FILE = PROJECT_ROOT / "artifacts" / "flattened" / "NeoFlowToken_original_flattened.sol"
+OUTPUT_FILE = PROJECT_ROOT / "artifacts" / "verification" / "sourcify_standard_json.json"
 
 def generate_standard_json():
-    """Gera o Standard JSON Input para verificação."""
-    try:
-        source_code_content = read_source_code(ORIGINAL_FLATTENED_FILE)
-    except FileNotFoundError as e:
-        print(f"❌ Erro: {e}")
-        print("💡 Certifique-se de que o arquivo original foi gerado:")
-        print("   artifacts/flattened/NeoFlowToken_original_flattened.sol")
-        return
-
-    # O Standard JSON Input espera um dicionário de fontes onde a chave é o caminho do arquivo
-    # e o valor é um dicionário com a chave "content".
-    sources = {
-        f"contracts/{CONTRACT_NAME}.sol": {
-            "content": source_code_content
-        }
-    }
-
-    standard_json_input = {
+    """Gera Standard JSON Input do código original (sem ContractMetadata)"""
+    
+    if not SOURCE_FILE.exists():
+        raise FileNotFoundError(f"Arquivo não encontrado: {SOURCE_FILE}")
+    
+    # Ler código fonte original (sem ContractMetadata)
+    with open(SOURCE_FILE, "r", encoding="utf-8") as f:
+        source_code = f.read()
+    
+    # Remover múltiplas licenças SPDX (deixar apenas a primeira)
+    lines = source_code.split('\n')
+    fixed_lines = []
+    first_license_found = False
+    
+    for line in lines:
+        if 'SPDX-License-Identifier' in line:
+            if not first_license_found:
+                fixed_lines.append(line)
+                first_license_found = True
+            # Pular todas as outras
+        else:
+            fixed_lines.append(line)
+    
+    source_code = '\n'.join(fixed_lines)
+    
+    # Criar Standard JSON Input
+    standard_json = {
         "language": "Solidity",
-        "sources": sources,
+        "sources": {
+            "contracts/NeoFlowToken.sol": {
+                "content": source_code
+            }
+        },
         "settings": {
             "optimizer": {
-                "enabled": OPTIMIZER_ENABLED,
-                "runs": OPTIMIZER_RUNS
+                "enabled": True,
+                "runs": 200
             },
-            "evmVersion": EVM_VERSION,
+            "evmVersion": "paris",
             "outputSelection": {
                 "*": {
                     "*": [
@@ -68,29 +67,32 @@ def generate_standard_json():
             }
         }
     }
-
-    # Garantir que o diretório de saída existe
-    OUTPUT_JSON_FILE.parent.mkdir(parents=True, exist_ok=True)
-
-    with open(OUTPUT_JSON_FILE, "w", encoding="utf-8") as f:
-        json.dump(standard_json_input, f, indent=2, ensure_ascii=False)
-
-    print(f"✅ Standard JSON Input gerado com sucesso!")
-    print(f"📁 Localização: {OUTPUT_JSON_FILE}")
-    print(f"📊 Tamanho: {OUTPUT_JSON_FILE.stat().st_size / 1024:.1f} KB")
+    
+    # Salvar
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        json.dump(standard_json, f, indent=2, ensure_ascii=False)
+    
+    # Verificações
+    spdx_count = source_code.count('SPDX-License-Identifier')
+    has_contract_metadata = 'ContractMetadata' in source_code
+    contract_line = [l for l in source_code.split('\n') if 'contract NeoFlowToken is' in l]
+    
+    print("=" * 60)
+    print("✅ Standard JSON gerado do código ORIGINAL (sem ContractMetadata)")
+    print("=" * 60)
     print()
-    print("📋 Configurações:")
-    print(f"   - Compiler: {COMPILER_VERSION}")
-    print(f"   - Optimization: {OPTIMIZER_ENABLED} (runs: {OPTIMIZER_RUNS})")
-    print(f"   - EVM Version: {EVM_VERSION}")
+    print(f"📁 Arquivo fonte: {SOURCE_FILE}")
+    print(f"📁 Arquivo gerado: {OUTPUT_FILE}")
     print()
-    print("💡 Use este arquivo para verificação no OKLink/Tenderly:")
-    print(f"   - Método: solidity-standard-json-input")
-    print(f"   - Arquivo: {OUTPUT_JSON_FILE.name}")
+    print("✅ Verificações:")
+    print(f"   Licenças SPDX: {spdx_count} {'✅' if spdx_count == 1 else '❌'}")
+    print(f"   Tem ContractMetadata: {has_contract_metadata} {'❌ (deve ser False)' if has_contract_metadata else '✅'}")
+    if contract_line:
+        print(f"   Contrato: {contract_line[0].strip()[:80]}")
     print()
-    print("📝 Constructor Arguments (ABI-encoded):")
-    print("   0000000000000000000000000000000000000000033b2e3c9fd0803ce8000000")
+    print("💡 Este arquivo corresponde ao bytecode deployado (2999 bytes)")
+    print()
 
 if __name__ == "__main__":
     generate_standard_json()
-

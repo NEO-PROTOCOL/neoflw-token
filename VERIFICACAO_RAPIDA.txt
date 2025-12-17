@@ -1,0 +1,58 @@
+═══════════════════════════════════════════════════════════════
+🚀 VERIFICAÇÃO RÁPIDA - POLYGONSCAN
+═══════════════════════════════════════════════════════════════
+
+📋 CONFIGURAÇÕES COMUNS (TODOS OS CONTRATOS):
+─────────────────────────────────────────────
+Compiler Version: v0.8.18+commit.87f61d96
+License: MIT License (MIT)
+Optimization: Yes
+Optimization Runs: 200
+EVM Version: default ou paris
+via-IR: No (não habilitado)
+
+═══════════════════════════════════════════════════════════════
+1️⃣  NEOFLOWTOKEN
+═══════════════════════════════════════════════════════════════
+
+Link: https://polygonscan.com/address/0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2#code
+
+Contract Name: NeoFlowToken
+Constructor Args: 0000000000000000000000000000000000000000033b2e3c9fd0803ce8000000
+Arquivo: artifacts/flattened/NeoFlowToken_flattened.sol
+
+═══════════════════════════════════════════════════════════════
+2️⃣  NEOFLOWCLAIM
+═══════════════════════════════════════════════════════════════
+
+Link: https://polygonscan.com/address/0x407C037906d6441ECD4a3F9064eab2E6CF03b36b#code
+
+Contract Name: NeoFlowClaim
+Constructor Args: 00000000000000000000000059aa4eae743d608fbdd4205eba59b38dca755dd2
+Arquivo: Gerar via: ape compile --format flattened
+
+═══════════════════════════════════════════════════════════════
+3️⃣  STAKINGVAULT
+═══════════════════════════════════════════════════════════════
+
+Link: https://polygonscan.com/address/0x07E39107d4B35b64f9f2310B9A2B8e5262A4ee41#code
+
+Contract Name: StakingVault
+Constructor Args: 00000000000000000000000059aa4eae743d608fbdd4205eba59b38dca755dd2
+Arquivo: Gerar via: ape compile --format flattened
+
+═══════════════════════════════════════════════════════════════
+📝 PASSO A PASSO RÁPIDO
+═══════════════════════════════════════════════════════════════
+
+1. Acesse o link do contrato
+2. Clique: "Contract" → "Verify and Publish"
+3. Método: "Flattened Source Code"
+4. Preencha os campos acima
+5. Cole o código flattened
+6. Clique: "Verify and Publish"
+7. ✅ Pronto!
+
+═══════════════════════════════════════════════════════════════
+
+Guia completo: docs/VERIFICACAO_COMPLETA_POLYGONSCAN.md

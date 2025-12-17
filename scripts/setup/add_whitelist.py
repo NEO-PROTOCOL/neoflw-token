@@ -82,7 +82,9 @@ def main():
     
     # Adicionar na whitelist
     print("⏳ Adicionando na whitelist...")
-    claim.setWhitelist(users, amounts, sender=acct)
+    # Definir gas limit manualmente (estimativa: ~100k por endereço + overhead)
+    gas_limit = 500_000  # Gas limit seguro para até 10 endereços
+    claim.setWhitelist(users, amounts, sender=acct, gas_limit=gas_limit)
     
     print()
     print("=" * 60)

@@ -9,13 +9,19 @@ import json
 import requests
 import time
 from pathlib import Path
+from dotenv import load_dotenv
 
-# Configurações
-OKLINK_API_URL = "https://www.oklink.com/api/v5/explorer/contract/verify-source-code"
-CHECK_STATUS_URL = "https://www.oklink.com/api/v5/explorer/contract/check-verify-result"
-CHAIN_SHORT_NAME = "POLYGON"
-CONTRACT_ADDRESS = "0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2"
-CONTRACT_NAME = "NeoFlowToken"
+# Carregar variáveis do .env (se existir)
+load_dotenv()
+
+# Configurações - URLs da API (fixas, não precisam estar no .env)
+OKLINK_API_URL = os.getenv("OKLINK_API_URL", "https://www.oklink.com/api/v5/explorer/contract/verify-source-code")
+CHECK_STATUS_URL = os.getenv("OKLINK_CHECK_STATUS_URL", "https://www.oklink.com/api/v5/explorer/contract/check-verify-result")
+
+# Configurações - podem ser definidas no .env ou usar valores padrão
+CHAIN_SHORT_NAME = os.getenv("OKLINK_CHAIN_SHORT_NAME", "POLYGON")
+CONTRACT_ADDRESS = os.getenv("NEXT_PUBLIC_TOKEN_ADDRESS", "0x59aa4EaE743d608FBDd4205ebA59b38DCA755Dd2")
+CONTRACT_NAME = os.getenv("OKLINK_CONTRACT_NAME", "NeoFlowToken")
 
 # Caminhos
 PROJECT_ROOT = Path(__file__).parent.parent.parent
@@ -23,24 +29,21 @@ SOURCE_FILE = PROJECT_ROOT / "artifacts" / "flattened" / "NeoFlowToken_original_
 CONSTRUCTOR_ARGS = "0000000000000000000000000000000000000000033b2e3c9fd0803ce8000000"
 
 # Configurações ordenadas por probabilidade (mais prováveis primeiro)
+# ⚠️ IMPORTANTE: Bytecode on-chain indica versão 0.8.18 ou anterior
 CONFIGURATIONS = [
-    # Mais prováveis (conforme cache)
+    # ⭐ MAIS PROVÁVEIS (bytecode mostra características de 0.8.18)
+    {"compiler": "v0.8.18+commit.87f61d96", "evm": "default", "via_ir": False},
+    {"compiler": "v0.8.18+commit.87f61d96", "evm": "paris", "via_ir": False},
+    {"compiler": "v0.8.18", "evm": "default", "via_ir": False},
+    {"compiler": "v0.8.17+commit.8df45f5f", "evm": "default", "via_ir": False},
+    {"compiler": "v0.8.16+commit.07a7930e", "evm": "default", "via_ir": False},
+    {"compiler": "v0.8.19+commit.425a24f5", "evm": "default", "via_ir": False},
+    
+    # Versões mais novas (menos prováveis)
     {"compiler": "v0.8.30+commit.73712a01", "evm": "paris", "via_ir": False},
     {"compiler": "v0.8.30", "evm": "paris", "via_ir": False},
-    {"compiler": "v0.8.30+commit.8c9944cf", "evm": "paris", "via_ir": False},
-    
-    # Alternativas sem via-IR
     {"compiler": "v0.8.30+commit.73712a01", "evm": "default", "via_ir": False},
-    {"compiler": "v0.8.18+commit.87f61d96", "evm": "paris", "via_ir": False},
-    {"compiler": "v0.8.18+commit.87f61d96", "evm": "default", "via_ir": False},
-    
-    # Com via-IR (menos provável)
-    {"compiler": "v0.8.30+commit.73712a01", "evm": "paris", "via_ir": True},
-    {"compiler": "v0.8.30", "evm": "paris", "via_ir": True},
-    
-    # Outras versões
     {"compiler": "v0.8.29+commit.736ccbcf", "evm": "paris", "via_ir": False},
-    {"compiler": "v0.8.28+commit.736ccbcf", "evm": "paris", "via_ir": False},
 ]
 
 def read_source_code():
@@ -197,15 +200,21 @@ def auto_verify_smart():
     print()
     print("🔗 Verificar manualmente:")
     print(f"   https://www.oklink.com/polygon/address/{CONTRACT_ADDRESS}")
-    return False
+    import sys
+    sys.exit(1)  # Retorna exit code 1 para indicar falha
 
 if __name__ == "__main__":
+    import sys
     try:
-        auto_verify_smart()
+        success = auto_verify_smart()
+        if not success:
+            sys.exit(1)  # Retorna exit code 1 se falhou
     except KeyboardInterrupt:
         print("\n\n⚠️  Interrompido pelo usuário")
+        sys.exit(130)  # Exit code padrão para Ctrl+C
     except Exception as e:
         print(f"\n\n❌ Erro: {e}")
         import traceback
         traceback.print_exc()
+        sys.exit(1)
 

@@ -1,0 +1,23 @@
+📋 BIBLIOTECAS DO CONTRATO NeoFlowToken
+========================================
+
+O contrato NeoFlowToken NÃO utiliza bibliotecas linkadas (libraries).
+
+Todas as dependências são contratos do OpenZeppelin que são compilados inline
+e não requerem endereços de bibliotecas para verificação.
+
+----------------------------------------
+Library-1 Nome | Library-1 Endereço
+----------------------------------------
+(Nenhuma biblioteca linkada)
+
+✅ Dependências (compiladas inline):
+   - ERC20 (OpenZeppelin Contracts v4.9.0)
+   - Ownable (OpenZeppelin Contracts v4.9.0)
+   - IERC20 (OpenZeppelin Contracts v4.9.0)
+   - IERC20Metadata (OpenZeppelin Contracts v4.9.0)
+   - Context (OpenZeppelin Contracts v4.9.4)
+
+💡 Nota: Para verificação no OKLink/Tenderly, você pode deixar o campo
+   "Library Info" vazio ou não preenchê-lo, pois não há bibliotecas linkadas.
+

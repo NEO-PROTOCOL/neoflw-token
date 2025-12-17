@@ -206,6 +206,12 @@ ape run scripts/setup/transfer_to_claim --network polygon:mainnet
 ape run scripts/setup/add_whitelist --network polygon:mainnet
 ```
 
+**✅ Status Atual (2025-12-17):**
+- ✅ **100M tokens transferidos** para o contrato de Claim
+- ✅ **Whitelist configurada** com 3 endereços elegíveis
+- ✅ **Total configurado:** 3,000 NEOFLW para claim
+- 📋 **Documentação:** Ver [`docs/WHITELIST_STATUS.md`](../WHITELIST_STATUS.md)
+
 #### **5.2. Configurar Vault**
 
 ```bash
@@ -232,7 +238,10 @@ ape run scripts/setup/add_whitelist --network polygon:mainnet
 ### **Pós-Deploy:**
 - [ ] Verificar contratos no Polygonscan
 - [ ] Atualizar `frontend/.env` com endereços
-- [ ] Configurar Claim (transferir tokens, whitelist)
+- [x] **Configurar Claim (transferir tokens, whitelist)** ✅ **CONCLUÍDO (2025-12-17)**
+  - ✅ 100M tokens transferidos para Claim
+  - ✅ Whitelist configurada com 3 endereços (3,000 NEOFLW)
+  - 📋 Ver: [`docs/WHITELIST_STATUS.md`](../WHITELIST_STATUS.md)
 - [ ] Testar frontend localmente
 - [ ] Build do frontend (`cd frontend && npm run build`)
 

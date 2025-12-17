@@ -1,0 +1,25 @@
+📋 VERSÕES DO COMPILADOR PARA TESTAR
+=====================================
+
+O contrato foi compilado com Solidity 0.8.30, mas o commit hash pode variar.
+
+Tente estas versões na ordem:
+
+1. v0.8.30+commit.73712a01  (versão atual no cache)
+2. v0.8.30+commit.8c9944cf  (versão mencionada anteriormente)
+3. v0.8.30                   (sem commit hash)
+4. v0.8.18+commit.87f61d96  (versão do pragma ^0.8.18)
+5. v0.8.29+commit.736ccbcf   (versão anterior)
+6. v0.8.28+commit.736ccbcf   (versão anterior)
+
+💡 DICA: No Tenderly/OKLink, tente cada versão até encontrar a que funciona.
+
+🔍 OUTRAS CONFIGURAÇÕES A VERIFICAR:
+
+- via-IR: false (padrão, não habilitado)
+- EVM Version: paris (conforme cache)
+- Optimization: true, runs: 200
+
+⚠️ IMPORTANTE: O código fonte deve ser EXATAMENTE o mesmo usado no deploy.
+   Use o arquivo: artifacts/flattened/NeoFlowToken_original_flattened.sol
+
