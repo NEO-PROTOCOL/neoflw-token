@@ -82,6 +82,7 @@ Este projeto conecta-se ao ecossistema **NEØ PROTOCOL** como a camada de tokeni
 - **Identity:** Wallet-based auth (MetaMask, Rabby, etc.) — sem dependência de curadoria centralizada
 
 - **Verification:** Etherscan/Polygonscan + Sourcify para verificação on-chain
+- **Validation:** SmartMuv para análise de storage layout e extração de dados
 
 ### AI & Machine Learning
 

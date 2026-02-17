@@ -194,6 +194,35 @@ ape etherscan verify NeoFlowClaim --network polygon:mainnet
 
 ---
 
+### 🟢 **PRIORIDADE #4.5: VALIDAR CONTRATOS COM SMARTMUV** 🔍
+
+**SmartMuv** é uma ferramenta de análise de storage layout e extração de dados. Útil para validação pós-deploy.
+
+#### **Instalar SmartMuv:**
+
+```bash
+cd /Users/nettomello/CODIGOS
+git clone https://github.com/mello-labs/SmartMuv.git
+cd SmartMuv
+python3 setup.py install
+python3 install_compilers.py
+```
+
+#### **Configurar:**
+
+Editar `config.ini` com RPC Polygon e API PolygonScan.
+
+#### **Usar para:**
+
+- ✅ **Validar layout de storage** dos contratos deployados
+- ✅ **Extrair dados** (holders, stakes, whitelist)
+- ✅ **Auditoria de storage** (verificar integridade)
+- ✅ **Preparar migrações** futuras (se necessário)
+
+**Nota:** SmartMuv complementa a verificação no PolygonScan. Use para validação e análise, não substitui verificação em exploradores.
+
+---
+
 ### 🟢 **PRIORIDADE #5: CONFIGURAR CONTRATOS APÓS DEPLOY**
 
 #### **5.1. Configurar Claim**
@@ -276,6 +305,7 @@ ape run scripts/setup/add_whitelist --network polygon:mainnet
 - **Próximos Passos:** [`docs/PROXIMOS_PASSOS_AGORA.md`](./PROXIMOS_PASSOS_AGORA.md)
 - **Migração Polygon:** [`docs/deploy/MIGRACAO_POLYGON.md`](./deploy/MIGRACAO_POLYGON.md)
 - **Organização Scripts:** [`docs/ORGANIZACAO_SCRIPTS.md`](./ORGANIZACAO_SCRIPTS.md)
+- **SmartMuv Validação:** [`docs/SMARTMUV_VALIDACAO.md`](./SMARTMUV_VALIDACAO.md)
 
 ---
 

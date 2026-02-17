@@ -36,5 +36,15 @@
         "@openzeppelin/contracts": "^4.9.6",
         "dotenv": "^17.2.3",
         "hardhat": "^2.27.1"
-    }
+    },
+    "funding": [
+        {
+            "type": "individual",
+            "url": "https://github.com/sponsors/neomello"
+        },
+        {
+            "type": "custom",
+            "url": "https://flowoff.xyz/support"
+        }
+    ]
 }

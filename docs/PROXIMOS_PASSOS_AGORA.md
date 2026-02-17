@@ -139,6 +139,98 @@ Para cada contrato deployado:
 
 ---
 
+### **7️⃣.5️⃣ VALIDAR E ANALISAR CONTRATOS COM SMARTMUV** 🔍
+
+**SmartMuv** é uma ferramenta de análise de storage layout e extração de dados de contratos EVM. Útil para validação pós-deploy.
+
+#### **7.5.1. Instalar SmartMuv**
+
+```bash
+# Clonar repositório
+cd /Users/nettomello/CODIGOS
+git clone https://github.com/mello-labs/SmartMuv.git
+cd SmartMuv
+
+# Instalar dependências
+python3 setup.py install
+
+# Instalar compiladores Solidity
+python3 install_compilers.py
+```
+
+#### **7.5.2. Configurar SmartMuv**
+
+Editar `config.ini` com:
+
+```ini
+[RPC]
+# Polygon Mainnet RPC
+url = https://polygon-rpc.com
+# OU usar Alchemy
+# url = https://polygon-mainnet.g.alchemy.com/v2/YOUR_API_KEY
+
+[BlockExplorer]
+# PolygonScan API
+api_key = YOUR_POLYGONSCAN_API_KEY
+url = https://api.polygonscan.com/api
+
+[CONTRACT_DIRECTORY]
+# Caminho para contratos do projeto
+path = /Users/nettomello/CODIGOS/neoflw-token/contracts
+```
+
+#### **7.5.3. Analisar Layout de Storage**
+
+```bash
+# Analisar layout de storage do Token
+python3 smartmuv.py
+
+# Selecionar contrato NeoFlowToken
+# Verificar slots de variáveis de estado
+```
+
+**O que validar:**
+
+- ✅ Slots de variáveis de estado estão corretos
+- ✅ Mappings estão mapeados corretamente
+- ✅ Estruturas (structs) estão alocadas corretamente
+- ✅ Não há conflitos de slots
+
+#### **7.5.4. Extrair Dados dos Contratos Deployados**
+
+```bash
+# Extrair estado completo do Token
+# Listar todos os holders
+# Verificar balances
+# Extrair dados do Vault (stakes)
+# Extrair whitelist do Claim
+```
+
+**Dados úteis para extrair:**
+
+- 📊 **Token:** Lista de holders, balances, totalSupply
+- 📊 **Vault:** Stakes ativos, rewards reservados, totalStakedAmount
+- 📊 **Claim:** Whitelist, tokens disponíveis para claim
+
+#### **7.5.5. Criar Script de Análise Automatizada**
+
+```bash
+# Criar script para análise automática de todos os contratos
+# Validar integridade dos dados
+# Comparar estado esperado vs. real
+```
+
+**Benefícios:**
+
+- ✅ Validação de integridade dos dados
+- ✅ Auditoria de storage layout
+- ✅ Preparação para migrações futuras
+- ✅ Documentação do estado dos contratos
+
+**Nota:** SmartMuv é complementar à verificação no PolygonScan. Use para validação e análise, não substitui verificação em exploradores.
+
+---
+
 ### **8️⃣ CONFIGURAR WHITELIST E DISTRIBUIÇÃO**
 
 #### **8.1. Transferir Tokens para StakingVault (Rewards)**
@@ -252,6 +344,9 @@ Adicionar no site da agência:
 ### **Fase 3: Configuração**
 - [ ] Atualizar `frontend/.env` com todos os endereços
 - [ ] Verificar contratos no Polygonscan
+- [ ] **Instalar e configurar SmartMuv** (validação pós-deploy)
+- [ ] **Analisar layout de storage dos contratos**
+- [ ] **Extrair dados dos contratos deployados**
 - [ ] Configurar whitelist no Claim
 - [ ] Transferir tokens para Vault (rewards)
 - [ ] Transferir tokens para Gamification (se deployado)
@@ -277,9 +372,10 @@ Adicionar no site da agência:
 | **Preparação** | 15-30 min |
 | **Deploy Contratos** | 1-2 horas |
 | **Configuração** | 30-60 min |
+| **Validação SmartMuv** | 30-45 min |
 | **Frontend/IPFS** | 1-2 horas |
 | **Integração** | 30 min |
-| **TOTAL** | **3-5 horas** |
+| **TOTAL** | **4-6 horas** |
 
 ---
 
@@ -346,6 +442,7 @@ cd frontend && npm run build
 - **Guia Completo:** [`CONFIGURACAO_COMPLETA_TOKEN.md`](../CONFIGURACAO_COMPLETA_TOKEN.md)
 - **Resumo Rápido:** [`RESUMO_CONFIGURACAO.md`](../RESUMO_CONFIGURACAO.md)
 - **Migração Polygon:** [`deploy/MIGRACAO_POLYGON.md`](../deploy/MIGRACAO_POLYGON.md)
+- **SmartMuv Validação:** [`SMARTMUV_VALIDACAO.md`](../SMARTMUV_VALIDACAO.md)
 
 ---
 
