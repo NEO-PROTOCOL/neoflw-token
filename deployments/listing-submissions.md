@@ -14,6 +14,8 @@ Decimals:    18
 MAX_SUPPLY:  1.000.000.000 NEOFLW
 Website:     https://flowoff.xyz
 Email:       flowoff.mkt@gmail.com
+Twitter/X:   https://x.com/neoflw_on_chain
+Telegram:    https://t.me/neoflowoff
 GitHub:      https://github.com/NEO-FlowOFF
 Miniapp:     https://agenteflow.vercel.app
 Logo local:  public/images/avatar_neoflow.png (256x256 PNG)
@@ -40,6 +42,8 @@ Ou direto: https://etherscan.io/tokenupdate?t=0x41F4ff3d45DED9C1332e4908F637B75f
 - Logo: upload `avatar_neoflow.png` (256x256)
 - Website: https://flowoff.xyz
 - Email: flowoff.mkt@gmail.com
+- Twitter/X: https://x.com/neoflw_on_chain
+- Telegram: https://t.me/neoflowoff
 - Description: NEOFlowOFF (NEOFLW) is the native token of the NEO Protocol ecosystem...
 - GitHub: https://github.com/NEO-FlowOFF
 
@@ -57,10 +61,12 @@ Ou direto: https://etherscan.io/tokenupdate?t=0x41F4ff3d45DED9C1332e4908F637B75f
 - Header Image: (opcional — criar banner 1200x400)
 - Description: NEOFlowOFF (NEOFLW) is the native token of the NEO Protocol ecosystem on Base.
 - Website: https://flowoff.xyz
+- Twitter/X: https://x.com/neoflw_on_chain
+- Telegram: https://t.me/neoflowoff
 - GitHub: https://github.com/NEO-FlowOFF
 - Miniapp: https://agenteflow.vercel.app
 
-**Nota:** DexScreener exige pelo menos alguma liquidez na pool antes de aceitar a submissão. ⚠️ Adicionar liquidez primeiro.
+**Nota:** ✅ Liquidez adicionada (TX: 0xcf57268fcb57bb3baa23414b67754217f095d98897bf692446f2655ef53c3eb7)
 
 ---
 
@@ -96,8 +102,8 @@ Ou token list própria hosteada em: https://flowoff.xyz/neoflw-token-list.json
 ## 5. Ordem de Execução Recomendada
 
 1. ✅ Verificação no Basescan — já está (NeoTokenV2 Exact Match)
-2. ⬜ **Adicionar liquidez** na pool Uniswap V4 (wallet nsfactory.eth)
-3. ⬜ Submeter info na **Basescan** (logo + website)
-4. ⬜ Submeter no **DexScreener** (após liquidez)
-5. ⬜ **GeckoTerminal** — aparece automático após liquidez; submeter info
-6. ⬜ **Uniswap token list** — PR ou lista própria
+2. ✅ **Liquidez adicionada** — TX 0xcf57268... (2026-02-22)
+3. ⬜ Submeter info na **Basescan** (logo + website + social)
+4. ⬜ Submeter no **DexScreener**
+5. ⬜ **GeckoTerminal** — aparece automático; submeter info
+6. ⬜ **Uniswap token list** — PR ou lista própria em flowoff.xyz
