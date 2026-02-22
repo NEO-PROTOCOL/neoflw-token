@@ -1,0 +1,28 @@
+{
+  "name": "NEO FlowOFF Token List",
+  "timestamp": "2026-02-22T00:00:00Z",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "logoURI": "ipfs://QmVMuP3WLuKkWjrPFT4WnQSfkRQfbNppAVkgi9aSQvtrBo",
+  "keywords": ["neo", "flowoff", "protocol", "base", "defi"],
+  "tokens": [
+    {
+      "chainId": 8453,
+      "address": "0x41F4ff3d45DED9C1332e4908F637B75fe83F5d6B",
+      "name": "NEOFlowOFF",
+      "symbol": "NEOFLW",
+      "decimals": 18,
+      "logoURI": "ipfs://QmVMuP3WLuKkWjrPFT4WnQSfkRQfbNppAVkgi9aSQvtrBo",
+      "tags": ["defi", "protocol"],
+      "extensions": {
+        "website": "https://flowoff.xyz",
+        "github": "https://github.com/NEO-FlowOFF",
+        "basescan": "https://basescan.org/token/0x41f4ff3d45ded9c1332e4908f637b75fe83f5d6b",
+        "uniswap": "https://app.uniswap.org/explore/pools/base/0x41F4ff3d45DED9C1332e4908F637B75fe83F5d6B"
+      }
+    }
+  ]
+}
