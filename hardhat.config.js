@@ -5,11 +5,14 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@okxweb3/hardhat-explorer-verify");
 require("dotenv").config();
+const SOLC_VERSION = process.env.SOLC_VERSION || "0.8.33";
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
-    version: "0.8.30", // Versão usada no deploy (compatível com ^0.8.18 do código)
+    // Para verificação legada de contratos já deployados, use:
+    // SOLC_VERSION=0.8.30 npx hardhat verify ...
+    version: SOLC_VERSION,
     settings: {
       optimizer: {
         enabled: true,
@@ -62,4 +65,3 @@ module.exports = {
     ]
   }
 };
-
