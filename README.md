@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD003 MD007 MD011 MD013 MD022 MD023 MD025 MD029 MD032 MD033 MD034 -->
+
 # NEOFLW Token // NEØ PROTOCOL
 
 > *"Onde outros colocam instruções, nós implantamos intenção."*
@@ -304,3 +306,23 @@ MIT — mas com *Anti-Corruption Clause* não escrita: uso ético é pré-requis
 ---
 
 **NΞØ:One aqui, NEØ.**
+
+────────────────────────────────────────
+
+▓▓▓ NΞØ MELLØ
+────────────────────────────────────────
+Core Architect · NΞØ Protocol
+neo@neoprotocol.space
+
+"Code is law. Expand until
+silence becomes structure."
+────────────────────────────────────────
+```
+ █████ █         
+██╔═══██╗       
+██║ █ ██║  
+██ █  ██║      
+╚██████╔╝   
+█ ╚═══╝     
+
+```
