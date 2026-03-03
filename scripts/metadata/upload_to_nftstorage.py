@@ -119,7 +119,7 @@ def main():
         print("⚠️  Aviso: A API key parece muito curta. Verifique se está correta.")
         print(f"   Tamanho atual: {len(api_key)} caracteres")
     
-    print(f"🔑 Usando API Key: {api_key[:10]}...{api_key[-5:]}")
+    print("🔑 NFT API key carregada com sucesso.")
     
     # Caminho da imagem
     script_dir = Path(__file__).parent
