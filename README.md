@@ -265,7 +265,7 @@ MIT — mas com *Anti-Corruption Clause* não escrita: uso ético é pré-requis
 
 - **DAO Channel:** [Telegram/Discord link — a definir]
 
-- **Issues Auditáveis:** [GitHub Issues](https://github.com/NEO-PROTOCOL/neoflw-token/issues)
+- **Issues Auditáveis:** [GitHub Issues](https://github.com/NEO-FlowOFF/neoflw-token/issues)
 
 - **Emergency Protocol:** Para exploits ou falhas críticas, contato direto via PGP ou email
 
