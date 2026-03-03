@@ -58,11 +58,15 @@ yarn-error.log*
 artifacts/addresses/*.txt
 
 # Artifacts de build e verificação
+artifacts/build-info/
 artifacts/flattened/*.sol
 artifacts/verification/*.json
 __local__.json
 .build/
 .build/**
+
+# Hardhat cache
+cache/
 
 # Arquivos do Cursor (podem conter informações sensíveis)
 .cursor/commands/*.md
